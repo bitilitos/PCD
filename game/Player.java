@@ -24,12 +24,20 @@ public abstract class Player  {
 		return null;
 	}
 
-	public Player(int id, Game game, byte strength) {
+	public Player(int id, Game game) {
 		super();
 		this.id = id;
 		this.game=game;
-		currentStrength=strength;
-		originalStrength=strength;
+		currentStrength=initialStrength();
+		originalStrength=currentStrength;
+	}
+
+	// devolve a Strength com probabilidade discreta uniforme (0.33)
+	private Byte initialStrength() {
+		Double prob = Math.random();
+		if (prob < 0.33) return 1;
+		if (prob < 0.66) return 2;
+		else return 3;
 	}
 
 	public abstract boolean isHumanPlayer();

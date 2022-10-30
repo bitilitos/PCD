@@ -7,6 +7,7 @@ public class Cell {
 	private Coordinate position;
 	private Game game;
 	private Player player=null;
+
 	
 	public Cell(Coordinate position,Game g) {
 		super();
@@ -31,7 +32,5 @@ public class Cell {
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-	
-	
 
 }
