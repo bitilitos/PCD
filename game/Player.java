@@ -9,7 +9,7 @@ import environment.Cell;
  * @author luismota
  *
  */
-public abstract class Player  {
+public abstract class Player extends Thread  {
 
 
 	protected  Game game;
@@ -18,10 +18,12 @@ public abstract class Player  {
 
 	private byte currentStrength;
 	protected byte originalStrength;
+	private boolean isWaitingPlacement;
+	private Cell position;
 
 	// TODO: get player position from data in game
 	public Cell getCurrentCell() {
-		return null;
+		return position;
 	}
 
 	public Player(int id, Game game) {
@@ -30,6 +32,7 @@ public abstract class Player  {
 		this.game=game;
 		currentStrength=initialStrength();
 		originalStrength=currentStrength;
+		isWaitingPlacement = false;
 	}
 
 	// devolve a Strength com probabilidade discreta uniforme (0.33)
@@ -38,6 +41,16 @@ public abstract class Player  {
 		if (prob < 0.33) return 1;
 		if (prob < 0.66) return 2;
 		else return 3;
+	}
+
+	@Override
+	public void run(){
+		game.addPlayerToGame(this);
+		// so para testar se são colocados depois
+
+		while(!isInterrupted()){
+
+		}
 	}
 
 	public abstract boolean isHumanPlayer();
@@ -78,4 +91,6 @@ public abstract class Player  {
 	public int getIdentification() {
 		return id;
 	}
+
+	public void setPosition(Cell cell) { position = cell;};
 }

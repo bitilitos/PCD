@@ -36,15 +36,13 @@ public class GameGuiMain implements Observer {
 		frame.setVisible(true);
 
 		// Demo players, should be deleted
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		for (int i=1; i < 31; i++ ) {
-			game.addPlayerToGame(new NPC(i, game));
-		}
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		game.placeNPCsOnBoard();
 
 	}
 

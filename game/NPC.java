@@ -1,6 +1,6 @@
 package game;
 
-public class NPC extends Player implements Runnable{
+public class NPC extends Player{
 
 
     public NPC(int id, Game game) {
@@ -12,8 +12,4 @@ public class NPC extends Player implements Runnable{
         return false;
     }
 
-    @Override
-    public void run() {
-
-    }
 }

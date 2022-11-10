@@ -32,13 +32,16 @@ public class Game extends Observable {
 	 */
 	public void addPlayerToGame(Player player) {
 		Cell initialPos=getRandomCell();
-		if (initialPos.isOcupied())
-			System.out.println("Player" + player.getIdentification() + ": Cell" + initialPos.getPosition().toString()+" is occupied");
-		else initialPos.setPlayer(player);
-
+		initialPos.setPlayer(player);
 		// To update GUI
 		notifyChange();
-		
+	}
+
+	public void placeNPCsOnBoard(){
+		for (int i=1; i < NUM_PLAYERS + 1; i++ ) {
+			Player player = new NPC(i, this);
+			player.start();
+		}
 	}
 
 	public Cell getCell(Coordinate at) {
