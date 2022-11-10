@@ -44,7 +44,7 @@ public class BlockingQueue<T> {
 
     }
 
-    public Boolean isInfinit() {
+    public boolean isInfinit() {
         if (MAX_CAPACITY == -1) return true;
         return false;
     }

@@ -26,6 +26,13 @@ public class Coordinate {
 		return Math.sqrt(dx * dx + dy * dy);
 	}
 
+	public Coordinate positionSum(Coordinate dir) {
+		int newDx = this.x + dir.x;
+		int newDy = this.y + dir.y;
+
+		return new Coordinate(newDx, newDy);
+	}
+
 	public Coordinate translate(Coordinate vector) {
 		return new Coordinate(x+vector.x, y+vector.y);
 	}

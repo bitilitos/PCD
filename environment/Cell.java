@@ -7,6 +7,7 @@ import game.Player;
 import java.util.List;
 import java.util.Queue;
 
+
 public class Cell {
 	private Coordinate position;
 	private Game game;
@@ -39,8 +40,13 @@ public class Cell {
 			try{
 				System.out.println(player + " waiting to be placed on cell " + this.toString() +
 						" occupied by " + this.player);
+			if(!player.isPlaced()){
 				waitingLine.put(player);
 				wait();
+			}else {
+				//batle
+			}
+
 			}catch (InterruptedException e) {
 				System.out.println(Thread.currentThread() + " was interrupted while waiting to be placed on " +
 						this.toString());
@@ -56,4 +62,8 @@ public class Cell {
 
 	}
 
+	public void resetCell() {
+		if(isOcupied())
+			this.player=null;
+	}
 }

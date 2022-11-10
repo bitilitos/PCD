@@ -3,6 +3,8 @@ package game;
 
 
 import environment.Cell;
+import environment.Coordinate;
+import environment.Direction;
 
 /**
  * Represents a player.
@@ -80,6 +82,29 @@ public abstract class Player extends Thread  {
 		Player other = (Player) obj;
 		if (id != other.id)
 			return false;
+		return true;
+	}
+
+	public void movePlayer(){
+		//I will just create it here, so I will override this method in NPC's
+		//Maybe it ain't needed, but we will see later
+//		Coordinate newCoord = dir.getVector();
+//		Cell currentCell = getCurrentCell();
+//		Coordinate currentCellCoords = currentCell.getPosition();
+//		Coordinate finalCoordinate = newCoord.positionSum(currentCellCoords);
+//		if(finalCoordinate.x >= Game.DIMX - 1 || finalCoordinate.y >= Game.DIMY - 1 || finalCoordinate.x < 0 || finalCoordinate.y < 0){
+//			System.out.println("Wrong position to move"
+//			);
+//			return;
+//		}
+
+
+	};
+
+	public boolean isPlaced(){
+		if(position==null)
+			return false;
+
 		return true;
 	}
 

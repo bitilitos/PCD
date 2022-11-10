@@ -3,8 +3,6 @@ package gui;
 import java.util.Observable;
 import java.util.Observer;
 import game.Game;
-import game.NPC;
-import game.PhoneyHumanPlayer;
 
 import javax.swing.JFrame;
 
